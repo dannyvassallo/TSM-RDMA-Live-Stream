@@ -1,24 +1,24 @@
 #Video Landing Page
-This includes:
-1. jQuery
-2. Bootstrap
-3. Font Awesome
+This includes:  
+1. jQuery  
+2. Bootstrap  
+3. Font Awesome  
 4. Heroku Deployment Config
 
 ### Getting Started
 ------------------------
 Clone the repo using the GUI or terminal. To do so in terminal, use the following:
 ```shell
-git clone https://github.com/mqschwanda/video-landing-page.git
-cd video-landing-page
+git clone https://github.com/mqschwanda/TSM-RDLive360-Landing.git
+cd TSM-RDLive360-Landing
 ```
 
-From the `video-landing-page` directory, install the gems by running the following:
+From the `TSM-RDLive360-Landing` directory, install the gems by running the following:
 ```shell
 bundle install
 ```
 
-To fire up the server while in the `video-landing-page` directory use this command:
+To fire up the server while in the `TSM-RDLive360-Landing` directory use this command:
 ```shell
 middleman s
 ```

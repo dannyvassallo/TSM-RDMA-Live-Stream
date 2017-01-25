@@ -1,4 +1,15 @@
-$backgroundColor: blue;
+$gradientTop: black;
+$gradientBottom: red;
+$textColor: white;
+$textAccent: red;
+/***
+  CUSTOM CSS HERE
+***/
+.header {
+  margin-bottom: 20px;
+}
+// END: custom css
+
 
 // typography
 @font-face {
@@ -11,13 +22,11 @@ $backgroundColor: blue;
 // general
 html{
   min-height:100%;/* make sure it is at least as tall as the viewport */
-  position:relative
+  position:relative;
 }
-body{
+body {
   height: 100%;
 }
-
-
 
 .full-w{
   width: 100%;
@@ -35,9 +44,9 @@ body{
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  // background-image: url('http://placehold.it/500x500?text=Replace+with+background');
-  background-color: $backgroundColor;
-}
-.header, .footer{
-  margin: 5% auto;
+  background: $gradientBottom; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($gradientTop, $gradientBottom); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($gradientTop, $gradientBottom); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($gradientTop, $gradientBottom); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($gradientTop, $gradientBottom); /* Standard syntax */
 }
