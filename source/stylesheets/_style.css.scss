@@ -1,7 +1,5 @@
-$gradientTop: #501012;
-$gradientBottom: #E52D35;
-$textColor: white;
-$textAccent: #E52D35;
+$backgroundColor: #000;
+
 /***
   CUSTOM CSS HERE
 ***/
@@ -10,10 +8,15 @@ $textAccent: #E52D35;
   margin-bottom: 15px;
 }
 // streaming video link
-.streaming-video-link{
+.streaming-video-link {
   display: block;
   position: relative;
+  width: 80%;
+  margin: auto;
   .clickhere {
+    width: 75%;
+    height: auto;
+    margin: auto;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -21,24 +24,16 @@ $textAccent: #E52D35;
     left: 0;
     z-index: 10;
   }
-  .grayscale {
-    -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter: grayscale(100%);
-  }
-  .progressbar {
-    margin-top: -20px;
+  .video-screen {
+    width: 95%;
+    height: 95%;
+    margin: auto;
     position: absolute;
-    bottom: 0;
-    z-index: 10;
-  }
-  .dark-overlay {
-    background-color: black;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    opacity: 0.7;
+    top: 2.5%;
+    bottom: 2.5%;
+    right: 2.5%;
+    left: 2.5%;
+    z-index: 5;
   }
 }
 // END: custom css
@@ -53,17 +48,18 @@ $textAccent: #E52D35;
        url('../fonts/PlacardMT-BoldCondensed.svg#PlacardMT-BoldCondensed') format('svg');
 }
 // general
-html{
-  min-height:100%;/* make sure it is at least as tall as the viewport */
-  position:relative;
+html {
+  min-height: 100%; /* make sure it is at least as tall as the viewport */
+  min-height: 100vh; /* make sure it is at least as tall as the viewport */
+  position: relative;
 }
 body {
   height: 100%;
 }
-.full-w{
+.full-w {
   width: 100%;
 }
-#background{
+#background {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -72,14 +68,5 @@ body {
   height: 100%;
   width: 100%;
   z-index: -99999;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background: $gradientBottom; /* For browsers that do not support gradients */
-}
-.gradient {
-  background: -webkit-linear-gradient($gradientTop, $gradientBottom); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient($gradientTop, $gradientBottom); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient($gradientTop, $gradientBottom); /* For Firefox 3.6 to 15 */
-  background: linear-gradient($gradientTop, $gradientBottom); /* Standard syntax */
+  background-color: $backgroundColor;
 }
