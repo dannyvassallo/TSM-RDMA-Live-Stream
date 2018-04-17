@@ -9,16 +9,16 @@ This includes:
 ------------------------
 Clone the repo using the GUI or terminal. To do so in terminal, use the following:
 ```shell
-git clone https://github.com/mqschwanda/TSM-RDLive360-Landing.git
-cd TSM-RDLive360-Landing
+git clone https://github.com/mqschwanda/TSM-RDMA-Live-Stream.git
+cd TSM-RDMA-Live-Stream
 ```
 
-From the `TSM-RDLive360-Landing` directory, install the gems by running the following:
+From the `TSM-RDMA-Live-Stream` directory, install the gems by running the following:
 ```shell
 bundle install
 ```
 
-To fire up the server while in the `TSM-RDLive360-Landing` directory use this command:
+To fire up the server while in the `TSM-RDMA-Live-Stream` directory use this command:
 ```shell
 middleman s
 ```

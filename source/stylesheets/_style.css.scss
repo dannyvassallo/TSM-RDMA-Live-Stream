@@ -7,12 +7,14 @@ $backgroundColor: #000;
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
 // streaming video link
 .streaming-video-link {
   display: block;
   position: relative;
   width: 80%;
   margin: auto;
+
   .clickhere {
     width: 75%;
     height: auto;
@@ -24,10 +26,10 @@ $backgroundColor: #000;
     left: 0;
     z-index: 10;
   }
+
   .video-screen {
     width: 95%;
     height: 95%;
-    margin: auto;
     position: absolute;
     top: 2.5%;
     bottom: 2.5%;
@@ -37,8 +39,7 @@ $backgroundColor: #000;
   }
 }
 // END: custom css
-
-
+//
 // typography
 @font-face {
   font-family: 'PlacardMT-BoldCondensed';
@@ -47,26 +48,22 @@ $backgroundColor: #000;
        url('../fonts/PlacardMT-BoldCondensed.ttf')  format('truetype'),
        url('../fonts/PlacardMT-BoldCondensed.svg#PlacardMT-BoldCondensed') format('svg');
 }
+
 // general
 html {
-  min-height: 100%; /* make sure it is at least as tall as the viewport */
-  min-height: 100vh; /* make sure it is at least as tall as the viewport */
   position: relative;
 }
-body {
-  height: 100%;
-}
+
 .full-w {
   width: 100%;
 }
+
 #background {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%;
-  width: 100%;
   z-index: -99999;
   background-color: $backgroundColor;
 }
