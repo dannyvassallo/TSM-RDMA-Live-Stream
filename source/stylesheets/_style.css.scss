@@ -1,4 +1,6 @@
-$backgroundColor: #000;
+$neon-green: #29e8ce;
+$neon-purple: #9e04fe;
+$background: linear-gradient($neon-purple, $neon-green);
 
 /***
   CUSTOM CSS HERE
@@ -65,5 +67,5 @@ html {
   left: 0;
   right: 0;
   z-index: -99999;
-  background-color: $backgroundColor;
+  background: $background;
 }
