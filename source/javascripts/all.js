@@ -10,6 +10,33 @@ var $clickHere;
 var isReady = false;
 var youtubeId = '5wTty7vUA9I';
 
+function checkGate() {
+  var gate = new Date(Date.UTC(2018, 3, 27, 21, 45));
+  var now = new Date();
+
+  return now > gate;
+}
+
+function handleIframeSwap() {
+  var url = 'https://www.youtube.com/embed/';
+  var qs = '?rel=0&showinfo=0&autoplay=1';
+  $iframe.prop('src', url + youtubeId + qs);
+
+  $iframe.show();
+  $videoScreen.hide();
+  $clickHere.hide();
+}
+
+function handleInterval() {
+  var interval = setInterval(function () {
+    var gate = checkGate();
+    if (gate) {
+      handleIframeSwap();
+      clearInterval(interval);
+    }
+  }, 60 * 1000);
+}
+
 function handleReady() {
   $iframe = $('iframe');
   $videoScreen = $('#video-screen');
@@ -17,24 +44,11 @@ function handleReady() {
 
   isReady = true;
 
-  // var now = new Date();
-  // var gate = new Date(Date.UTC(2018, 3, 27, 21, 55));
-  //
-  // if (now > gate) {
-  //   handleClick();
-  // } else {
-  //   var clearInterval = setInterval(function () {
-  //     now = new Date();
-  //     if (now > gate) {
-  //       handleClick();
-  //       clearInterval();
-  //     }
-  //   }, 60 * 1000);
-  // }
+  handleInterval();
 }
 
 function handleResize() {
-  if (isReady) {
+  if (isReady && $iframe.is(':visible')) {
     var width = $videoScreen.width();
     var height = width * 9 / 16;
 
@@ -43,27 +57,15 @@ function handleResize() {
 }
 
 function handleClick() {
-  var url = 'https://www.youtube.com/embed/';
-  var qs = '?rel=0&showinfo=0&autoplay=1';
-  $iframe.prop('src', url + youtubeId + qs);
-
-  handleResize();
-
-  $iframe.show();
-  $videoScreen.hide();
-  $clickHere.hide();
+  var gate = checkGate();
+  if (gate) {
+    handleIframeSwap();
+    handleResize();
+  }
 }
-
-// function handleClick() {
-//   var url = 'https://www.youtube.com/embed/';
-//   var qs = '?rel=0&showinfo=0&autoplay=1';
-//   window.open(url + youtubeId + qs);
-// }
 
 $(document).ready(handleReady);
 
-$(window).resize(function() {
-  if (isReady && $iframe.is(':visible')) handleResize();
-});
+$(window).resize(handleResize);
 
 $('#streaming-video').on('click', handleClick);
