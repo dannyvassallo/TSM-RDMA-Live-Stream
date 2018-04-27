@@ -16,6 +16,21 @@ function handleReady() {
   $clickHere = $('#click-here');
 
   isReady = true;
+
+  var now = new Date();
+  var gate = new Date(Date.UTC(2018, 3, 27, 21, 55));
+
+  if (now > gate) {
+    handleClick();
+  } else {
+    var clearInterval = setInterval(function () {
+      now = new Date();
+      if (now > gate) {
+        handleClick();
+        clearInterval();
+      }
+    }, 60 * 1000);
+  }
 }
 
 function handleResize() {
