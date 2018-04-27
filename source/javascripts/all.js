@@ -17,36 +17,6 @@ function checkGate() {
   return now > gate;
 }
 
-function handleIframeSwap() {
-  var url = 'https://www.youtube.com/embed/';
-  var qs = '?rel=0&showinfo=0&autoplay=1';
-  $iframe.prop('src', url + youtubeId + qs);
-
-  $iframe.show();
-  $videoScreen.hide();
-  $clickHere.hide();
-}
-
-function handleInterval() {
-  var interval = setInterval(function () {
-    var gate = checkGate();
-    if (gate) {
-      handleIframeSwap();
-      clearInterval(interval);
-    }
-  }, 60 * 1000);
-}
-
-function handleReady() {
-  $iframe = $('iframe');
-  $videoScreen = $('#video-screen');
-  $clickHere = $('#click-here');
-
-  isReady = true;
-
-  handleInterval();
-}
-
 function handleResize() {
   if (isReady && $iframe.is(':visible')) {
     var width = $videoScreen.width();
@@ -56,12 +26,39 @@ function handleResize() {
   }
 }
 
-function handleClick() {
-  var gate = checkGate();
-  if (gate) {
+function handleIframeSwap() {
+  var url = 'https://www.youtube.com/embed/';
+  var qs = '?rel=0&showinfo=0&autoplay=1';
+  $iframe.prop('src', url + youtubeId + qs);
+
+  $iframe.show();
+  $videoScreen.hide();
+  $clickHere.hide();
+
+  handleResize();
+}
+
+function handleReady() {
+  $iframe = $('iframe');
+  $videoScreen = $('#video-screen');
+  $clickHere = $('#click-here');
+
+  isReady = true;
+
+  if (checkGate()) {
     handleIframeSwap();
-    handleResize();
+  } else {
+    var interval = setInterval(function() {
+      if (checkGate()) {
+        handleIframeSwap();
+        clearInterval(interval);
+      }
+    }, 60 * 1000);
   }
+}
+
+function handleClick() {
+  if (checkGate()) handleIframeSwap();
 }
 
 $(document).ready(handleReady);

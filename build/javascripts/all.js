@@ -11,7 +11,7 @@
  *
  * Date: 2014-12-17T15:27Z
  */
-function checkGate(){var t=new Date(Date.UTC(2018,3,27,21,45)),e=new Date;return e>t}function handleIframeSwap(){var t="https://www.youtube.com/embed/",e="?rel=0&showinfo=0&autoplay=1";$iframe.prop("src",t+youtubeId+e),$iframe.show(),$videoScreen.hide(),$clickHere.hide()}function handleInterval(){var t=setInterval(function(){var e=checkGate();e&&(handleIframeSwap(),clearInterval(t))},6e4)}function handleReady(){$iframe=$("iframe"),$videoScreen=$("#video-screen"),$clickHere=$("#click-here"),isReady=!0,handleInterval()}function handleResize(){if(isReady&&$iframe.is(":visible")){var t=$videoScreen.width(),e=9*t/16;$iframe.width(t).height(e)}}function handleClick(){var t=checkGate();t&&(handleIframeSwap(),handleResize())}/*!
+function checkGate(){var t=new Date(Date.UTC(2018,3,27,21,45)),e=new Date;return e>t}function handleResize(){if(isReady&&$iframe.is(":visible")){var t=$videoScreen.width(),e=9*t/16;$iframe.width(t).height(e)}}function handleIframeSwap(){var t="https://www.youtube.com/embed/",e="?rel=0&showinfo=0&autoplay=1";$iframe.prop("src",t+youtubeId+e),$iframe.show(),$videoScreen.hide(),$clickHere.hide(),handleResize()}function handleReady(){if($iframe=$("iframe"),$videoScreen=$("#video-screen"),$clickHere=$("#click-here"),isReady=!0,checkGate())handleIframeSwap();else var t=setInterval(function(){checkGate()&&(handleIframeSwap(),clearInterval(t))},6e4)}function handleClick(){checkGate()&&handleIframeSwap()}/*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under the MIT license
